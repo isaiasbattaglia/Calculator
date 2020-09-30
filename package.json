@@ -1,9 +1,11 @@
 {
-  "name": "Calculator",
+  "name": "Calculator1.0",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+
   "scripts": {
+    "dev" : "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/isaiasbattaglia/Calculator/issues"
   },
-  "homepage": "https://github.com/isaiasbattaglia/Calculator#readme"
+  "homepage": "https://github.com/isaiasbattaglia/Calculator#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
