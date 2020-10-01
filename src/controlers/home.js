@@ -3,10 +3,11 @@ const ctrl = {
 };
 
 ctrl.index = (req, res) => {
-    res.send('Index page');
+    res.render('index');
 };
 
 ctrl.calculate = (req, res) =>{
+
 };
 
 module.exports = ctrl;
