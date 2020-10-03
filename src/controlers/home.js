@@ -4,7 +4,7 @@ const ctrl = {};
 const LastCalc = require('../models/data');
 ctrl.index = async(req, res) => {
     console.log("HOLA");
-    var data = new LastCalc({ expression: "Welcome"});
+    var data = new LastCalc({ expression: "0"});
     await data.save();
     console.log(data);
     res.render('index',{data: data.expression, id:data._id});

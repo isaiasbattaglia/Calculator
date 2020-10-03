@@ -1,14 +1,13 @@
 
 
 var expression= document.getElementById("display").value;
+var result = document.getElementById("result").value;
 var last_calc_id = document.getElementById("last_calc_id").value;
-var result=0;
  
 
 $('#save').click(function(e) {
     e.preventDefault();
     console.log(expression);
-    
     $.post('/save', {id: last_calc_id, exp: expression})
      
 });
@@ -17,10 +16,10 @@ $('#last').click(function(e) {
     e.preventDefault();
     $.get('/'+last_calc_id+'/last')
         .done(data => {
-            expression = data.expression;
+            expression = data.expression
+            result = ExpressionSolver(data.expression);
             console.log(expression);
             updateDisplay();
-            
         })
         
      
@@ -28,6 +27,9 @@ $('#last').click(function(e) {
  
 const keys = document.querySelector('.calculator-keys');
 keys.addEventListener('click', (event) => {
+    if(expression === '0'){
+        expression= '';
+    }
     const { target } = event;
         if (!target.matches('button')) {
         return;
@@ -40,7 +42,7 @@ keys.addEventListener('click', (event) => {
     }
 
     if (target.classList.contains('equal-sign')) {
-        ExpressionSolver(expression);
+        result = ExpressionSolver(expression);
         updateDisplay();
         return;
     }
@@ -51,28 +53,39 @@ keys.addEventListener('click', (event) => {
         return;
     }
 
-    if (target.classList.contains('db')) {
-        dbManager(target);
+
+    if (target.classList.contains('dot')) {
+        expression = expression+"."
         updateDisplay();
         return;
-    }
+      }
 
     expression = expression + target.value;
     updateDisplay();
 });
 
 function resetCalculator() {
-    expression="";
+    expression = "";
+    result = "";
 }
 
 function updateDisplay() {
-    const display = document.querySelector('.calculator-screen');
+    const display = document.querySelector('.calculator-expression');
+    const res = document.querySelector('.calculator-result');
     display.value = expression;
+    res.value = result;
+
 }
 
 function ExpressionSolver(e) {
-    var expr = calc.parse(expressionString.replace(new RegExp("<br>", 'g'), ""));
-    return res = expr.eval();
+    var calc = new MathCalc();
+    var expr = calc.parse(e);
+    if (expr.error) {
+        return "Syntax Error";
+    }
+    else {
+        return expr.eval();
+    }
 }
 
 
