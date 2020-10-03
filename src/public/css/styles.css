@@ -1,7 +1,6 @@
 html {
-    font-size: 80%;
+    font-size: 62.5%;
     box-sizing: border-box;
-    background-color:honeydew;
   }
 
   *,
@@ -27,21 +26,25 @@ html {
     height: 80px;
     border: none;
     background-color: #252525;
-    color: #ccc;
+    color: #fff;
     text-align: right;
     padding-right: 20px;
     padding-left: 10px;
     font-size: 4rem;
   }
+  .text{
+    position:relative;
+  }
 
   button {
     height: 60px;
+    background-color: rgb(221, 221, 221);
     font-size: 2rem!important;
   }
 
   .equal-sign {
     height: 98%;
-    grid-area: 3/ 4/ 8 / 4;
+    grid-area: 3 / 4 / 8 / 5;
   }
 
   .calculator-keys {

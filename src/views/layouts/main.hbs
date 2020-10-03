@@ -14,44 +14,50 @@
 <body>
 
     <div class="calculator card">
+      <input type="text" id= "display"  class="calculator-screen z-depth-1" value="{{data}}" disabled />
+      <input type="hidden" id="last_calc_id" value="{{id}}">
+      <div class="calculator-keys">
+        <button type="button" class="far fa-save db btn btn-info"id="save"> </button>
 
-    <input type="text" class="calculator-screen z-depth-1" value="" disabled />
+        
+        <button type="button" class="far fa-flag db btn btn-info" id="last"> </button>
+      
+        <button type="button" class="operator btn btn-info" value="(">(</button>
+        <button type="button" class="operator btn btn-info" value=")">)</button>
 
-    <div class="calculator-keys">
+        <button type="button" class="operator btn btn-info" value="+">+</button>
+        <button type="button" class="operator btn btn-info" value="-">-</button>
+        <button type="button" class="operator btn btn-info" value="*">&times;</button>
+        <button type="button" class="operator btn btn-info" value="/">&divide;</button>
 
-      <button type="button" class="far fa-save operator btn btn-info " value="+"> </button>
-      <button type="button" class="far fa-flag operator btn btn-info" value="-"> </button>
-      <button type="button" class="operator btn btn-info" value="+">(</button>
-      <button type="button" class="operator btn btn-info" value="-">)</button>
-
-      <button type="button" class="operator btn btn-info" value="+">+</button>
-      <button type="button" class="operator btn btn-info" value="-">-</button>
-      <button type="button" class="operator btn btn-info" value="*">&times;</button>
-      <button type="button" class="operator btn btn-info" value="/">&divide;</button>
-
-      <button type="button" value="7" class="btn btn-light waves-effect">7</button>
-      <button type="button" value="8" class="btn btn-light waves-effect">8</button>
-      <button type="button" value="9" class="btn btn-light waves-effect">9</button>
-
-
-      <button type="button" value="4" class="btn btn-light waves-effect">4</button>
-      <button type="button" value="5" class="btn btn-light waves-effect">5</button>
-      <button type="button" value="6" class="btn btn-light waves-effect">6</button>
+        <button type="button" value="7" class="btn btn-light waves-effect">7</button>
+        <button type="button" value="8" class="btn btn-light waves-effect">8</button>
+        <button type="button" value="9" class="btn btn-light waves-effect">9</button>
 
 
-      <button type="button" value="1" class="btn btn-light waves-effect">1</button>
-      <button type="button" value="2" class="btn btn-light waves-effect">2</button>
-      <button type="button" value="3" class="btn btn-light waves-effect">3</button>
+        <button type="button" value="4" class="btn btn-light waves-effect">4</button>
+        <button type="button" value="5" class="btn btn-light waves-effect">5</button>
+        <button type="button" value="6" class="btn btn-light waves-effect">6</button>
 
 
-      <button type="button" value="0" class="btn btn-light waves-effect">0</button>
-      <button type="button" class="decimal function btn btn-secondary" value=".">.</button>
-      <button type="button" class="all-clear function btn btn-danger btn-sm" value="all-clear">AC</button>
+        <button type="button" value="1" class="btn btn-light waves-effect">1</button>
+        <button type="button" value="2" class="btn btn-light waves-effect">2</button>
+        <button type="button" value="3" class="btn btn-light waves-effect">3</button>
 
-      <button type="button" class="equal-sign operator btn btn-success" value="=">=</button>
 
-    </div>
+        <button type="button" value="0"  class="btn btn-light waves-effect">0</button>
+
+        <button type="button" value="all-clear" class="all-clear function btn btn-danger btn-sm">AC</button>
+        <button type="button" value="=" class="equal-sign btn btn-success">=</button>
+        <button type="button" class="btn btn-light waves-effect"></button>
+
+      </div>
   </div>
 
+  <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+  <!-- Scripts -->
+  <script src="/public/js/calculator.js"></script>
 </body>
 </html>

@@ -11,15 +11,20 @@ module.exports = app =>{
     app.set('port', process.env.PORT || 3000);
     app.set('views', path.join(__dirname, '../views'));
 
+    
     app.engine('.hbs', exphbs({
         defaultLayaut: 'main',
         layoutsDir: path.join(app.get('views'), 'layouts'),
         extname: '.hbs',
-        helpers: require('./helpers')
+        helpers: require('./helpers'),
+        allowedProtoMethods: true,
+        allowProtoProperties:true,
+        allowProtoPropertiesByDefault:true
     }));
     app.set('view engine', '.hbs');
 
     //middlewares
+    app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
 
     //rutes
@@ -27,7 +32,7 @@ module.exports = app =>{
 
     app.use("/public", express.static(path.join(__dirname, "../public")));
 
-    
+
     //errorhandlers
     if('development'=== app.get('env')) {
         app.use(errorHandler)
