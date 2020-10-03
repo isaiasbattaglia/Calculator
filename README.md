@@ -1,6 +1,6 @@
 <h1>CALCULATOR 1.0<h1>
 
-This proyect is a simple calculator, implemented in Javascript server and client with Mongodb database.
+This proyect is a simple calculator, implemented in Node.js Server and Mongodb database.
 
 To run the application open a terminal in this repository and execute.
  
