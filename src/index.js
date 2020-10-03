@@ -5,7 +5,7 @@ const config = require('./server/config');
 //Database
 require('./database');
 
-// Starting th server
+// Starting the server
 const app = config(express());
 
 app.listen(app.get('port'), () => {

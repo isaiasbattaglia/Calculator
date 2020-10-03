@@ -20,23 +20,30 @@ $('#last').click(function(e) {
             result = ExpressionSolver(data.expression);
             console.log(expression);
             updateDisplay();
-        })
-        
-     
+        }) 
 });
  
 const keys = document.querySelector('.calculator-keys');
 keys.addEventListener('click', (event) => {
-    if(expression === '0'){
+    
+    if(expression === 'Hi!'){
         expression= '';
     }
+
     const { target } = event;
-        if (!target.matches('button')) {
+    if (!target.matches('button')) {
         return;
     }
 
     if (target.classList.contains('operator')) {
-        expression= expression+ target.value;
+        if(result !== ""){
+            var s = target.value;
+            expression = result.toString() + s;
+            result = "";
+        }
+        else{
+            expression = expression + target.value;
+        }
         updateDisplay();
         return;
     }
@@ -55,12 +62,14 @@ keys.addEventListener('click', (event) => {
 
 
     if (target.classList.contains('dot')) {
-        expression = expression+"."
+        expression = expression + "."
         updateDisplay();
         return;
-      }
+    }
+    
 
     expression = expression + target.value;
+    result = "";  
     updateDisplay();
 });
 
@@ -87,7 +96,3 @@ function ExpressionSolver(e) {
         return expr.eval();
     }
 }
-
-
-
-  
