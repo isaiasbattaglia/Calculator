@@ -40,7 +40,7 @@ keys.addEventListener('click', (event) => {
     }
 
     if (target.classList.contains('equal-sign')) {
-        resetCalculator();
+        ExpressionSolver(expression);
         updateDisplay();
         return;
     }
@@ -64,15 +64,17 @@ keys.addEventListener('click', (event) => {
 function resetCalculator() {
     expression="";
 }
+
 function updateDisplay() {
     const display = document.querySelector('.calculator-screen');
     display.value = expression;
 }
 
-function dbManager(target){
+function ExpressionSolver(e) {
+    var expr = calc.parse(expressionString.replace(new RegExp("<br>", 'g'), ""));
+    return res = expr.eval();
+}
 
-}  
-    
 
 
   
